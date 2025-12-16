@@ -45,6 +45,7 @@ a {
   src: url(fontes/NewRocker-Regular.ttf);
 }
 
+/* ================= MENU BASE (desktop/tablet) ================= */
 #menu {
   color: white;
   background-color: #2F0404;
@@ -56,14 +57,29 @@ a {
   font-family: titulo;
   -webkit-text-stroke: 0.9px black;
   font-size: 32px;
-  border-bottom:5px black solid;
+  border-bottom: 5px black solid;
 }
 
+/* botão hamburguer base (escondido no desktop) */
+#botaomenu {
+  display: none;
+}
+
+/* checkbox NUNCA aparece visualmente */
+#aberturamenu {
+  display: none;
+}
+
+.linha {
+  height: 5px;
+  background-color: white;
+}
+
+/* ================= FUNDO ================= */
 #fundo {
   background-image: url(./img2/fundo.png);
   min-height: 864px;
   background-size: cover;
-  min-width: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -82,96 +98,6 @@ a {
   padding: 0 5px;
 }
 
-.imagen {
-  margin: 90px 80px 0px 80px;
-}
-
-#p2 {
-  width: auto;
-  height: auto;
-  background-image: linear-gradient(to top, #3D0300 15%, #4C0E00 36%);
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 90px 1fr 1fr;
-  height: 1100px;
-}
-
-#pagina2 {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  text-align: center;
-
-}
-
-#textos {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-content: center;
-}
-
-#texto1 {
-  width: 300px;
-}
-
-#texto2 {
-  width: 400px;
-}
-
-.texto {
-  background-color: #F8DDA4;
-  color: #3D0300;
-  margin-top: 16px;
-  height: 60px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  font-family: titulo;
-  font-size: 47px;
-  font-weight: bolder;
-  padding: 5px 30px;
-
-}
-
-#i1 {
-  grid-column-start: 3;
-  grid-column-end: 3;
-  grid-row-start: 2;
-}
-
-#i2 {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 3;
-}
-
-#i3 {
-  grid-column-start: 3;
-  grid-column-end: 3;
-  grid-row-start: 3;
-}
-
-#i4 {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 2;
-}
-
-#i5 {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
-}
-
-#i6 {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 3;
-}
-
-
 #slogan {
   padding: 6px 30px 6px 30px;
   background-color: #EAB2B220;
@@ -189,7 +115,75 @@ a {
   font-size: 40px;
 }
 
+/* ================= P2 – CARDÁPIO (mobile first) ================= */
+#p2 {
+  width: auto;
+  background-image: linear-gradient(to top, #3D0300 15%, #4C0E00 36%);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* 2 colunas mobile */
+  grid-auto-rows: auto;
+  padding: 20px 10px;
+  height: auto;
+}
 
+#pagina2 {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+/* TEXTOS DO CARDÁPIO - UM EMBAIXO DO OUTRO */
+#textos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+#texto1 {
+  width: 100%;
+  max-width: 500px;
+}
+
+#texto2 {
+  width: 100%;
+  max-width: 600px;
+}
+
+.texto {
+  background-color: #F8DDA4;
+  color: #3D0300;
+  margin-top: 16px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: titulo;
+  font-size: 26px;
+  font-weight: bolder;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.imagen {
+  margin: 10px auto;
+  max-width: 90%;
+  height: auto;
+  display: block;
+}
+
+/* Itens do cardápio sem grid-column fixo no mobile */
+#i1,
+#i2,
+#i3,
+#i4,
+#i5,
+#i6 {
+  text-align: center;
+}
+
+/* ================= P3 – RESERVAS (desktop base) ================= */
 #p3 {
   min-height: 824px;
   background-color: #2F0404;
@@ -197,9 +191,7 @@ a {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 300px 1fr 1fr;
   height: 1000px;
-
 }
-
 
 .item {
   margin: 20px 0 0 40px;
@@ -210,28 +202,12 @@ a {
   height: 60px;
   align-items: center;
   font-family: reserva;
-
 }
 
-#item1 {
-  display: flex;
-  background-color: #FFC15E;
-}
-
-#item2 {
-  display: flex;
-  background-color: #FFC15E90;
-}
-
-#item3 {
-  display: flex;
-  background-color: #F8DDA4;
-}
-
-#item4 {
-  display: flex;
-  background-color: #FFC15E;
-}
+#item1 { background-color: #FFC15E; }
+#item2 { background-color: #FFC15E90; }
+#item3 { background-color: #F8DDA4; }
+#item4 { background-color: #FFC15E; }
 
 #reserva2 {
   grid-column-start: 2;
@@ -243,7 +219,6 @@ a {
   align-items: center;
   margin-top: 40px;
   width: 504px;
-
 }
 
 #pagina3 {
@@ -252,8 +227,6 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-
 }
 
 #pessoas {
@@ -266,9 +239,9 @@ a {
 
 .imagem {
   margin: 20px;
-
 }
 
+/* ================= P4 – HISTÓRIA (desktop base) ================= */
 #p4 {
   background-color: #F8DDA4;
   height: 570px;
@@ -276,7 +249,6 @@ a {
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr 2fr;
   padding-bottom: 40px;
-
 }
 
 #conteudo {
@@ -317,6 +289,7 @@ a {
   font-size: 30px;
 }
 
+/* ================= FOOTER ================= */
 footer {
   background-color: #780000;
   min-height: 120px;
@@ -350,39 +323,281 @@ footer {
 .cardapio {
   min-height: 700px;
   background-image: linear-gradient(to bottom, #3D0300 10%, #4C0E00, #3D0300 90%);
-
 }
-.itens{
-    -webkit-text-stroke: 0.9px #FFC15E99;
+
+.itens {
+  -webkit-text-stroke: 0.9px #FFC15E99;
   list-style-position: inside;
   font-family: texto;
   padding: 50px 0 50px 50px;
   background-color: black;
   width: 600px;
 }
-.itens > li{
+
+.itens > li {
   margin-top: 20px;
 }
-#carne {
 
+/* ============ DESKTOP (>= 768px) – CARDÁPIO 3 colunas ============ */
+@media screen and (min-width:768px) {
+
+  #p2 {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 90px 1fr 1fr;
+    padding: 0;
+    height: 1100px;
+  }
+
+  .texto {
+    font-size: 47px;
+    padding: 5px 30px;
+    height: 60px;
+  }
+
+  .imagen {
+    margin: 90px 80px 0 80px;
+    max-width: 100%;
+  }
+
+  /* posições originais dos itens */
+  #i1 { grid-column: 3; grid-row: 2; }
+  #i2 { grid-column: 2; grid-row: 3; }
+  #i3 { grid-column: 3; grid-row: 3; }
+  #i4 { grid-column: 1; grid-row: 2; }
+  #i5 { grid-column: 2; grid-row: 2; }
+  #i6 { grid-column: 1; grid-row: 3; }
 }
 
-#sobremesa {
+/* ============ MOBILE GERAL (até 768px) – p3/p4 coluna ============ */
+@media screen and (max-width:768px) {
+  /* MENU MOBILE / TABLET (ATÉ 768px) – HAMBURGUER */
+@media screen and (max-width:768px){
 
+  /* container do menu em coluna */
+  #menu{
+    position: relative;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 10px;
+    gap: 0;
+  }
+
+  /* mostra botão hamburguer até 768px */
+  #botaomenu{
+    display:flex;
+    width:40px;
+    height:40px;
+    flex-direction: column;
+    justify-content: space-around;
+    padding:2px;
+    border:1px solid white;
+    border-radius:10px;
+    margin:5px 0;
+    cursor:pointer;
+  }
+
+  .linha{
+    height:5px;
+    background-color:white;
+  }
+
+  /* checkbox escondido (funciona via label) */
+  #aberturamenu{
+    display:none;
+  }
+
+  /* estado FECHADO: esconde os links */
+  #menu a{
+    display:none;
+  }
+
+  /* quando o checkbox estiver marcado, MOSTRA os links */
+  #aberturamenu:checked ~ a{
+    display:block;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px dashed white;
+    padding: 5px 0;
+    margin: 2px 0;
+  }
+
+  #aberturamenu:checked ~ a img{
+    display:block;
+    margin: 5px auto;
+  }
 }
 
-#vinho {
 
+  body {
+    overflow-x: hidden;
+  }
+
+  #fundo {
+    width: 100%;
+    padding: 40px 10px;
+    text-align: center;
+    background-position: center;
+  }
+
+  #slogan {
+    font-size: 26px;
+    padding: 6px 10px;
+  }
+
+  .RESERVA {
+    font-size: 24px;
+    padding: 6px 16px;
+  }
+
+  /* ========= P3 – RESERVAS ========= */
+  #p3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px;
+    height: auto;
+    background-color: #2F0404;
+  }
+
+  #reserva2 {
+    order: 1;
+    width: 100%;
+    max-width: 400px;
+    margin: 10px auto;
+  }
+
+  #pessoas {
+    order: 2;
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .imagem {
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+    margin: 10px auto;
+    display: block;
+  }
+
+  #pagina3 {
+    order: 3;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .item {
+    margin: 10px auto;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  /* ========= P4 – HISTÓRIA ========= */
+  #p4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px 40px;
+    height: auto;
+    background-color: #F8DDA4;
+  }
+
+  #historia {
+    width: 100%;
+    max-width: 400px;
+    margin: 10px auto;
+  }
+
+  #conteudo {
+    width: 100%;
+    max-width: 600px;
+    margin: 10px auto;
+    height: auto;
+  }
+
+  #chef {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  #chef img {
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+  }
+
+  #rp {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    border-radius: 0;
+    padding: 20px 10px;
+    height: auto;
+  }
+
+  .vv {
+    text-align: center;
+  }
+
+  #p2 .imagen {
+    max-width: 30vw;
+  }
 }
 
-#drink {
+/* ============ MENU MOBILE (ATÉ 426px) – HAMBURGUER ============ */
+@media screen and (max-width:426px){
 
+  /* container do menu em coluna */
+  #menu{
+    position: relative;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 10px;
+    gap: 0;
+  }
+
+  /* mostra botão hamburguer só no mobile */
+  #botaomenu{
+    display:flex;
+    width:40px;
+    height:40px;
+    flex-direction: column;
+    justify-content: space-around;
+    padding:2px;
+    border:1px solid white;
+    border-radius:10px;
+    margin:5px 0;
+    cursor:pointer;
+  }
+
+  .linha{
+    height:5px;
+    background-color:white;
+  }
+
+  /* estado FECHADO: esconde os <a> (links) */
+  #menu a{
+    display:none;
+  }
+
+  /* quando o checkbox estiver marcado, MOSTRA os links */
+  #aberturamenu:checked ~ a{
+    display:block;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px dashed white;
+    padding: 5px 0;
+    margin: 2px 0;
+  }
+
+  #aberturamenu:checked ~ a img{
+    display:block;
+    margin: 5px auto;
+  }
+  #p2 {
+    grid-template-columns: 1fr;
+  }
 }
 
-#salada {
-
-}
-
-#acomponhamentos {
-
-}
