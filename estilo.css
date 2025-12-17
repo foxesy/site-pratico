@@ -45,7 +45,7 @@ a {
   src: url(fontes/NewRocker-Regular.ttf);
 }
 
-/* ================= MENU BASE (desktop/tablet) ================= */
+
 #menu {
   color: white;
   background-color: #2F0404;
@@ -60,12 +60,10 @@ a {
   border-bottom: 5px black solid;
 }
 
-/* botão hamburguer base (escondido no desktop) */
 #botaomenu {
   display: none;
 }
 
-/* checkbox NUNCA aparece visualmente */
 #aberturamenu {
   display: none;
 }
@@ -75,7 +73,6 @@ a {
   background-color: white;
 }
 
-/* ================= FUNDO ================= */
 #fundo {
   background-image: url(./img2/fundo.png);
   min-height: 864px;
@@ -115,13 +112,12 @@ a {
   font-size: 40px;
 }
 
-/* ================= P2 – CARDÁPIO (mobile first) ================= */
+/*  mobile base */
 #p2 {
   width: auto;
   background-image: linear-gradient(to top, #3D0300 15%, #4C0E00 36%);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  /* 2 colunas mobile */
   grid-auto-rows: auto;
   padding: 20px 10px;
   height: auto;
@@ -132,7 +128,6 @@ a {
   text-align: center;
 }
 
-/* TEXTOS DO CARDÁPIO - UM EMBAIXO DO OUTRO */
 #textos {
   display: flex;
   flex-direction: column;
@@ -175,16 +170,11 @@ a {
 }
 
 /* Itens do cardápio sem grid-column fixo no mobile */
-#i1,
-#i2,
-#i3,
-#i4,
-#i5,
-#i6 {
+#i1,#i2,#i3,#i4,#i5,#i6 {
   text-align: center;
 }
 
-/* ================= P3 – RESERVAS (desktop base) ================= */
+/* desktop base  */
 #p3 {
   min-height: 824px;
   background-color: #2F0404;
@@ -253,7 +243,7 @@ a {
   margin: 20px;
 }
 
-/* ================= P4 – HISTÓRIA (desktop base) ================= */
+/*  desktop base  */
 #p4 {
   background-color: #F8DDA4;
   height: 570px;
@@ -301,7 +291,6 @@ a {
   font-size: 30px;
 }
 
-/* ================= FOOTER ================= */
 footer {
   background-color: #780000;
   min-height: 120px;
@@ -356,8 +345,8 @@ footer {
     align-items: center;
     justify-content: space-around;
 }
-/* ============ DESKTOP (>= 768px) – CARDÁPIO 3 colunas ============ */
-@media screen and (min-width:768px) {
+/*  DESKTOP  */
+@media screen and (min-width:767px) {
 
   #p2 {
     grid-template-columns: 1fr 1fr 1fr;
@@ -377,7 +366,6 @@ footer {
     max-width: 100%;
   }
 
-  /* posições originais dos itens */
   #i1 {
     grid-column: 3;
     grid-row: 2;
@@ -410,12 +398,7 @@ footer {
 }
 
 
-/* MENU MOBILE / TABLET (ATÉ 768px) – HAMBURGUER */
 @media screen and (max-width:769px) {
-
-  /* ========= MENU HAMBÚRGUER (igual ao mobile) ========= */
-
-  /* container do menu em coluna */
   #menu {
     position: relative;
     flex-direction: column;
@@ -423,8 +406,6 @@ footer {
     padding: 8px 10px;
     gap: 0;
   }
-
-  /* botão hambúrguer */
   #botaomenu {
     display: flex;
     width: 40px;
@@ -437,23 +418,19 @@ footer {
     margin: 5px 0;
     cursor: pointer;
   }
-
   .linha {
     height: 5px;
     background-color: white;
   }
-
-  /* contêiner dos links: fechado por padrão */
   #menu-links {
     width: 100%;
     overflow: hidden;
-    height: 0;                     /* começa fechado */
-    transition: height 0.4s ease;  /* anima abrir/fechar */
+    height: 0;                    
+    transition: height 0.4s ease;  
     display: flex;
     flex-direction: column;
   }
 
-  /* links dentro do menu-links */
   #menu-links a {
     display: block;
     width: 100%;
@@ -463,17 +440,13 @@ footer {
     margin: 2px 0;
   }
 
-  /* checkbox escondido (controlado pelo label) */
   #aberturamenu {
     display: none;
   }
 
-  /* quando o checkbox estiver marcado, ABRE o contêiner */
   #aberturamenu:checked ~ #menu-links {
-    height: 589px; /* ajuste conforme a quantidade de links */
+    height: 589px;
   }
-
-  /* ========= LAYOUT MOBILE / TABLET ========= */
 
   body {
     overflow-x: hidden;
@@ -496,7 +469,6 @@ footer {
     padding: 6px 16px;
   }
 
-  /* P2 em 1 coluna */
   #p2 {
     grid-template-columns: 1fr;
   }
@@ -599,7 +571,6 @@ footer {
 
 @media screen and (max-width:426px) {
 
-  /* container do menu em coluna */
   #menu {
     position: relative;
     flex-direction: column;
@@ -608,7 +579,6 @@ footer {
     gap: 0;
   }
 
-  /* botão hambúrguer */
   #botaomenu {
     display: flex;
     width: 40px;
@@ -627,18 +597,15 @@ footer {
     background-color: white;
   }
 
-  /* contêiner dos links: fechado por padrão */
   #menu-links {
     width: 100%;
     overflow: hidden;
-    height: 0;                     /* começa fechado */
-    transition: height 0.4s ease;  /* anima abrir/fechar */
+    height: 0;                     
+    transition: height 0.4s ease;  
     display: flex;
     flex-direction: column;
 
   }
-
-  /* links dentro do menu-links (não precisam de display:none) */
   #menu-links a {
     display: block;
     width: 100%;
@@ -648,17 +615,16 @@ footer {
     margin: 2px 0;
   }
 
-  /* checkbox escondido (controlado pelo label) */
+  
   #aberturamenu {
     display: none;
   }
 
-  /* quando o checkbox estiver marcado, ABRE o contêiner */
+
   #aberturamenu:checked ~ #menu-links {
-    height: 589px; /* ajuste conforme a quantidade de links */
+    height: 589px; 
   }
 
-  /* cardápio em 1 coluna no mobile pequeno */
   #p2 {
     grid-template-columns: 1fr;
   }
