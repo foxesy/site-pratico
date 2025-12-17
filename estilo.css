@@ -120,7 +120,8 @@ a {
   width: auto;
   background-image: linear-gradient(to top, #3D0300 15%, #4C0E00 36%);
   display: grid;
-  grid-template-columns: repeat(2, 1fr);  /* 2 colunas mobile */
+  grid-template-columns: repeat(2, 1fr);
+  /* 2 colunas mobile */
   grid-auto-rows: auto;
   padding: 20px 10px;
   height: auto;
@@ -204,10 +205,21 @@ a {
   font-family: reserva;
 }
 
-#item1 { background-color: #FFC15E; }
-#item2 { background-color: #FFC15E90; }
-#item3 { background-color: #F8DDA4; }
-#item4 { background-color: #FFC15E; }
+#item1 {
+  background-color: #FFC15E;
+}
+
+#item2 {
+  background-color: #FFC15E90;
+}
+
+#item3 {
+  background-color: #F8DDA4;
+}
+
+#item4 {
+  background-color: #FFC15E;
+}
 
 #reserva2 {
   grid-column-start: 2;
@@ -334,10 +346,16 @@ footer {
   width: 600px;
 }
 
-.itens > li {
+.itens>li {
   margin-top: 20px;
 }
-
+#menu-links {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
 /* ============ DESKTOP (>= 768px) – CARDÁPIO 3 colunas ============ */
 @media screen and (min-width:768px) {
 
@@ -360,21 +378,45 @@ footer {
   }
 
   /* posições originais dos itens */
-  #i1 { grid-column: 3; grid-row: 2; }
-  #i2 { grid-column: 2; grid-row: 3; }
-  #i3 { grid-column: 3; grid-row: 3; }
-  #i4 { grid-column: 1; grid-row: 2; }
-  #i5 { grid-column: 2; grid-row: 2; }
-  #i6 { grid-column: 1; grid-row: 3; }
+  #i1 {
+    grid-column: 3;
+    grid-row: 2;
+  }
+
+  #i2 {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  #i3 {
+    grid-column: 3;
+    grid-row: 3;
+  }
+
+  #i4 {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  #i5 {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  #i6 {
+    grid-column: 1;
+    grid-row: 3;
+  }
 }
 
-/* ============ MOBILE GERAL (até 768px) – p3/p4 coluna ============ */
-@media screen and (max-width:768px) {
-  /* MENU MOBILE / TABLET (ATÉ 768px) – HAMBURGUER */
-@media screen and (max-width:768px){
+
+/* MENU MOBILE / TABLET (ATÉ 768px) – HAMBURGUER */
+@media screen and (max-width:769px) {
+
+  /* ========= MENU HAMBÚRGUER (igual ao mobile) ========= */
 
   /* container do menu em coluna */
-  #menu{
+  #menu {
     position: relative;
     flex-direction: column;
     align-items: flex-start;
@@ -382,38 +424,38 @@ footer {
     gap: 0;
   }
 
-  /* mostra botão hamburguer até 768px */
-  #botaomenu{
-    display:flex;
-    width:40px;
-    height:40px;
+  /* botão hambúrguer */
+  #botaomenu {
+    display: flex;
+    width: 40px;
+    height: 40px;
     flex-direction: column;
     justify-content: space-around;
-    padding:2px;
-    border:1px solid white;
-    border-radius:10px;
-    margin:5px 0;
-    cursor:pointer;
+    padding: 2px;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: 5px 0;
+    cursor: pointer;
   }
 
-  .linha{
-    height:5px;
-    background-color:white;
+  .linha {
+    height: 5px;
+    background-color: white;
   }
 
-  /* checkbox escondido (funciona via label) */
-  #aberturamenu{
-    display:none;
+  /* contêiner dos links: fechado por padrão */
+  #menu-links {
+    width: 100%;
+    overflow: hidden;
+    height: 0;                     /* começa fechado */
+    transition: height 0.4s ease;  /* anima abrir/fechar */
+    display: flex;
+    flex-direction: column;
   }
 
-  /* estado FECHADO: esconde os links */
-  #menu a{
-    display:none;
-  }
-
-  /* quando o checkbox estiver marcado, MOSTRA os links */
-  #aberturamenu:checked ~ a{
-    display:block;
+  /* links dentro do menu-links */
+  #menu-links a {
+    display: block;
     width: 100%;
     text-align: center;
     border-bottom: 1px dashed white;
@@ -421,12 +463,17 @@ footer {
     margin: 2px 0;
   }
 
-  #aberturamenu:checked ~ a img{
-    display:block;
-    margin: 5px auto;
+  /* checkbox escondido (controlado pelo label) */
+  #aberturamenu {
+    display: none;
   }
-}
 
+  /* quando o checkbox estiver marcado, ABRE o contêiner */
+  #aberturamenu:checked ~ #menu-links {
+    height: 589px; /* ajuste conforme a quantidade de links */
+  }
+
+  /* ========= LAYOUT MOBILE / TABLET ========= */
 
   body {
     overflow-x: hidden;
@@ -449,7 +496,11 @@ footer {
     padding: 6px 16px;
   }
 
-  /* ========= P3 – RESERVAS ========= */
+  /* P2 em 1 coluna */
+  #p2 {
+    grid-template-columns: 1fr;
+  }
+
   #p3 {
     display: flex;
     flex-direction: column;
@@ -493,7 +544,6 @@ footer {
     max-width: 400px;
   }
 
-  /* ========= P4 – HISTÓRIA ========= */
   #p4 {
     display: flex;
     flex-direction: column;
@@ -546,11 +596,11 @@ footer {
   }
 }
 
-/* ============ MENU MOBILE (ATÉ 426px) – HAMBURGUER ============ */
-@media screen and (max-width:426px){
+
+@media screen and (max-width:426px) {
 
   /* container do menu em coluna */
-  #menu{
+  #menu {
     position: relative;
     flex-direction: column;
     align-items: flex-start;
@@ -558,33 +608,39 @@ footer {
     gap: 0;
   }
 
-  /* mostra botão hamburguer só no mobile */
-  #botaomenu{
-    display:flex;
-    width:40px;
-    height:40px;
+  /* botão hambúrguer */
+  #botaomenu {
+    display: flex;
+    width: 40px;
+    height: 40px;
     flex-direction: column;
     justify-content: space-around;
-    padding:2px;
-    border:1px solid white;
-    border-radius:10px;
-    margin:5px 0;
-    cursor:pointer;
+    padding: 2px;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: 5px 0;
+    cursor: pointer;
   }
 
-  .linha{
-    height:5px;
-    background-color:white;
+  .linha {
+    height: 5px;
+    background-color: white;
   }
 
-  /* estado FECHADO: esconde os <a> (links) */
-  #menu a{
-    display:none;
+  /* contêiner dos links: fechado por padrão */
+  #menu-links {
+    width: 100%;
+    overflow: hidden;
+    height: 0;                     /* começa fechado */
+    transition: height 0.4s ease;  /* anima abrir/fechar */
+    display: flex;
+    flex-direction: column;
+
   }
 
-  /* quando o checkbox estiver marcado, MOSTRA os links */
-  #aberturamenu:checked ~ a{
-    display:block;
+  /* links dentro do menu-links (não precisam de display:none) */
+  #menu-links a {
+    display: block;
     width: 100%;
     text-align: center;
     border-bottom: 1px dashed white;
@@ -592,12 +648,18 @@ footer {
     margin: 2px 0;
   }
 
-  #aberturamenu:checked ~ a img{
-    display:block;
-    margin: 5px auto;
+  /* checkbox escondido (controlado pelo label) */
+  #aberturamenu {
+    display: none;
   }
+
+  /* quando o checkbox estiver marcado, ABRE o contêiner */
+  #aberturamenu:checked ~ #menu-links {
+    height: 589px; /* ajuste conforme a quantidade de links */
+  }
+
+  /* cardápio em 1 coluna no mobile pequeno */
   #p2 {
     grid-template-columns: 1fr;
   }
 }
-
