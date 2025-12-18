@@ -45,7 +45,6 @@ a {
   src: url(fontes/NewRocker-Regular.ttf);
 }
 
-
 #menu {
   color: white;
   background-color: #2F0404;
@@ -238,11 +237,6 @@ a {
   grid-row-end: 3;
   text-align: center;
 }
-
-.imagem {
-  margin: 20px;
-}
-
 /*  desktop base  */
 #p4 {
   background-color: #F8DDA4;
@@ -346,7 +340,7 @@ footer {
     justify-content: space-around;
 }
 /*  DESKTOP  */
-@media screen and (min-width:767px) {
+@media screen and (min-width:769px) {
 
   #p2 {
     grid-template-columns: 1fr 1fr 1fr;
@@ -396,7 +390,6 @@ footer {
     grid-row: 3;
   }
 }
-
 
 @media screen and (max-width:769px) {
   #menu {
@@ -470,7 +463,7 @@ footer {
   }
 
   #p2 {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   #p3 {
@@ -568,7 +561,6 @@ footer {
   }
 }
 
-
 @media screen and (max-width:426px) {
 
   #menu {
@@ -619,7 +611,6 @@ footer {
   #aberturamenu {
     display: none;
   }
-
 
   #aberturamenu:checked ~ #menu-links {
     height: 589px; 
